@@ -25,6 +25,17 @@ fun DashboardScreen(
             text = "Dashboard",
             style = MaterialTheme.typography.headlineSmall,
         )
+        if (!uiState.isAuthenticated) {
+            Text(
+                text = "You are not signed in yet.",
+                style = MaterialTheme.typography.bodyLarge,
+            )
+            Text(
+                text = "Sign in to see your personalized dashboard.",
+                style = MaterialTheme.typography.bodyMedium,
+            )
+            return@Column
+        }
         Text(
             text = "Hello ${uiState.displayName.ifEmpty { "there" }}",
             style = MaterialTheme.typography.bodyLarge,
